@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <script type="text/javascript" src="jquery-1.4.min.js"></script>
+	<script type="text/javascript" src="jquery.dateLists.min.js"></script>
+
+    <style type="text/css">
+        .dateLists_container{
+
+        }
+
+		.dateLists_container .list{
+			float:left;
+		}
+		
+        .dateLists_container .day_container{
+
+        }
+
+        .dateLists_container .day_container .list{
+			margin-right:10px;
+        }
+
+        .dateLists_container .month_container{
+
+        }
+
+        .dateLists_container .month_container .list{
+			margin-right:10px;
+        }
+
+        .dateLists_container .year_container{
+
+        }
+
+        .dateLists_container .year_container .list{
+
+        }    
+    
+    </style>
+	
+  <script type="text/javascript">  
+   $().ready(function() {  
+        $('#test_fld').dateDropDowns({dateFormat:'dd-mm-yy'});  
+   });  
+  </script>       
+</head>
+<body>
+
+<div>
+	<input type="text" id="test_fld" value="5-2-2000"/>
+</div>
+</body>
+</html>

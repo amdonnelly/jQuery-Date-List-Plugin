@@ -1,0 +1,31 @@
+{
+"name": "spiralimages",
+"title": "jQuery Date Lists",
+"description": "Date Drop Down Lists.",
+"keywords": [
+"date lists", "Date Drop Down Lists", "date of birth", "dob"
+],
+"version": "1.0.1",
+"homepage": "http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
+"demo": "http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
+"author": {
+"name": "Alan Donnelly",
+"email": "amdonnelly@gmail.com",
+"url": "http://www.amdonnelly.co.uk"
+},
+"maintainers": [
+{
+"name": "Alan Donnelly",
+"email": "amdonnelly@gmail.com"
+}
+],
+"licenses": [
+{
+"type": "MIT",
+"url": "http://opensource.org/licenses/MIT"
+}
+],
+"dependencies": {
+"jquery": ">=1.6"
+}
+}
