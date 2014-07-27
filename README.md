@@ -3,7 +3,7 @@ jQuery-Date-List-Plugin
 
 jQuery plugin for creating day/month/year filtered lists, bound to a text field with the date value.
 
-For an example visit [the demo page](http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx "Date Drop Down List")
+For an example visit [the demo page](http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx "Date Drop Down List")
 
 ##Installation
 
