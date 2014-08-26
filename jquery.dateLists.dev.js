@@ -13,7 +13,8 @@
             var defaults = {
                 dateFormat: 'dd-mm-yy', 
                 monthNames: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], 
-                yearStart:'1900', yearEnd:new Date().getFullYear()
+                yearStart:'1900', yearEnd:new Date().getFullYear(),
+				defaultCurrentDate: false
             };
             var options = $.extend(defaults, options);
 
@@ -115,7 +116,7 @@
                     
                                         
                     for(_x=_start;_x<_daysInMonth; _x++){
-                        var _selected = (_date.getDate()==_x) ?  "selected='true'" : "";
+                        var _selected = (defaults.defaultCurrentDate && (_date.getDate()==_x)) ?  "selected='true'" : "";
                         _options+="<option value='" + _x + "' " + _selected + ">" + _x + "</option>";
                     }
                     
@@ -149,7 +150,7 @@
                      $("#"+_container_name_month + "_list").children().remove();
                      
                     for(_x=0;_x<12; _x++){
-                        var _selected = ((_date.getMonth())==_x) ? "selected='true'" : "";
+                        var _selected = (defaults.defaultCurrentDate && (_date.getMonth()==_x)) ? "selected='true'" : "";
 
                         $("#"+_container_name_month + "_list").append("<option value='" + _x + "' " + _selected + ">" + defaults.monthNames[_x] + "</option>");
                     }
@@ -162,7 +163,7 @@
                     
                     if(_yEnd>_yStart){
                         for(_x=_yStart;_x<_yEnd+1; _x++){
-                            var _selected = ((_date.getFullYear())==_x) ? "selected='true'" : "";
+                            var _selected = (defaults.defaultCurrentDate && (_date.getFullYear()==_x)) ? "selected='true'" : "";
 
                             $("#"+_container_name_year + "_list").append("<option value='" + _x + "' " + _selected + ">" + _x + "</option>");
                         } 
