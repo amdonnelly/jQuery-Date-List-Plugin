@@ -5,7 +5,7 @@
 "keywords": [
 "date lists", "Date Drop Down Lists", "date of birth", "dob"
 ],
-"version": "1.0.1",
+"version": "1.0.2",
 "homepage": "http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
 "demo": "http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
 "author": {
@@ -17,6 +17,10 @@
 {
 "name": "Alan Donnelly",
 "email": "amdonnelly@gmail.com"
+},
+{
+"name": "UA2004",
+"email": "ua2004@ukr.net"
 }
 ],
 "licenses": [

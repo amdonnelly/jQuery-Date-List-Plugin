@@ -3,7 +3,7 @@
  *
  * url		http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx
  * author	Alan Donnelly 2011
- * version	1.0.1
+ * version	1.0.2
  * license	MIT and GPL licenses
  */
  
