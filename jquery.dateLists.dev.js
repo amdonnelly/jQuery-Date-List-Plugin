@@ -28,7 +28,7 @@
                                     
                 var _startDate = obj.val();
                 var _date = new Date();
-                var _seperator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : "-";
+                var _separator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : "-";
                 
                 GetStartDate();
                 AddLists();
@@ -38,8 +38,8 @@
                 //=========================================================================
                 function GetStartDate(){
                     if(_startDate.length>0){
-                        var _dateSections = defaults.dateFormat.split(_seperator);
-                        var _dateParts = _startDate.split(_seperator);
+                        var _dateSections = defaults.dateFormat.split(_separator);
+                        var _dateParts = _startDate.split(_separator);
                         var _newDate = new Date();
 
                         for(_x=0; _x<_dateParts.length; _x++){
@@ -60,7 +60,7 @@
                 
                 //=========================================================================
                 function AddLists(){
-                    var _dateSections   = defaults.dateFormat.split(_seperator);
+                    var _dateSections   = defaults.dateFormat.split(_separator);
                     
                     var _obj = obj;
                     
