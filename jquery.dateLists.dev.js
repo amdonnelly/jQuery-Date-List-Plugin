@@ -28,7 +28,7 @@
                                     
                 var _startDate = obj.val();
                 var _date = new Date();
-                var _separator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : "-";
+                var _separator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : ((defaults.dateFormat.indexOf(".")>-1) ? "." : "-");
                 
                 GetStartDate();
                 AddLists();
