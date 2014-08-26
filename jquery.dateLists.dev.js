@@ -13,7 +13,7 @@
             var defaults = {
                 dateFormat: 'dd-mm-yy', 
                 monthNames: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], 
-                yearStart:'1979', yearEnd:new Date().getFullYear()
+                yearStart:'1900', yearEnd:new Date().getFullYear()
             };
             var options = $.extend(defaults, options);
 
