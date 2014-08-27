@@ -34,6 +34,7 @@
                 AddLists();
                 PopulateLists();
                 SetupChangeHandlers();
+                RerouteLabel();
                 
                 //=========================================================================
                 function GetStartDate(){
@@ -252,7 +253,17 @@
                     _newDate = _newDate.replace("yy", _year);
                     
                     obj.val(_newDate);
-                }     
+                }  
+
+                function RerouteLabel() {
+                    var objId = obj.attr("id");
+                    var sibs = obj.parent().siblings("label[for=" + objId + "]");
+                    if (sibs) {
+                        var newLabelDest = $("#" + _container_name).find("SELECT").first();
+                        var newForId = newLabelDest.attr("id");
+                        sibs.first().attr("for", newForId);
+                    }
+                }
             });
         };
     })(jQuery);
