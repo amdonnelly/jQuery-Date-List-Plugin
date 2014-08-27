@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+
+  <head>
+    <style type="text/css">
+			body {
+				font-family: calibri, arial;				
+			}
+			.timeLists_container input[type=text] {
+				background-color: #FFFFDE;
+				width: 60px;
+			}
+		</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jquery.timeLists.dev.js"></script>
+  </head>
+
+  <body>
+    <h1>jQuery Time List</h1>
+    <p>
+      Simple jQuery plug-in that interacts with a time-based input, converting
+      it into dropdowns - useful for mobile versions.
+    </p>
+    
+    <h2>Examples</h2>
+    <p>
+      A few examples / tests
+    </p>
+    
+    <h3>12 hour clock</h3>
+		<p>
+			<label for="eg12-1">Default 12-hour behaviour</label>
+			<input type="text" id="eg12-1" value="23:31:59" />
+		</p>
+		<p>
+			<label for="eg12-2">15 minute intervals</label>
+			<input type="text" id="eg12-2" value="23:31:59" />
+		</p>
+		<p>
+			<label for="eg12-3">15 minute intervals, no seconds</label>
+			<input type="text" id="eg12-3" value="23:31:59" />
+		</p>
+		
+		<h3>24 hour clock</h3>
+		<p>
+			<label for="eg24-1">Default 24-hour behaviour</label>
+			<input type="text" id="eg24-1" value="23:46:59" />
+		</p>
+		<p>
+			<label for="eg24-2">15 minute intervals</label>
+			<input type="text" id="eg24-2" value="23:46:59" />
+		</p>
+		<p>
+			<label for="eg24-3">15 minute intervals, no seconds</label>
+			<input type="text" id="eg24-3" value="23:46:59" />
+		</p>
+    
+    
+    <script type="text/javascript">
+      $().ready(function() {
+				var debugEnabled = true;
+				
+        $("#eg12-1").timeDropdowns({
+					inDebug: debugEnabled
+				});
+        $("#eg12-2").timeDropdowns({
+					inDebug: debugEnabled,
+					minuteInterval: 15
+				});
+        $("#eg12-3").timeDropdowns({
+					inDebug: debugEnabled,
+					minuteInterval: 15,
+					showSeconds: false
+				});
+				
+				$("#eg24-1").timeDropdowns({
+					inDebug: debugEnabled,
+					useMilitaryTime: true
+				}); 
+				$("#eg24-2").timeDropdowns({
+					inDebug: debugEnabled,
+					useMilitaryTime: true,
+					minuteInterval: 15					
+				}); 
+				$("#eg24-3").timeDropdowns({
+					inDebug: debugEnabled,
+					useMilitaryTime: true,
+					minuteInterval: 15,
+					showSeconds: false				
+				}); 
+				
+      });
+      
+    </script>
+  </body>
+
+</html>
