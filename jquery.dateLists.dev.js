@@ -1,7 +1,7 @@
 /*
  * jQuery dateDropDowns
  *
- * url		http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx
+ * url		http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx
  * author	Alan Donnelly 2011
  * version	1.0.1
  * license	MIT and GPL licenses
@@ -34,6 +34,7 @@
                 AddLists();
                 PopulateLists();
                 SetupChangeHandlers();
+                RerouteLabel();
                 
                 //=========================================================================
                 function GetStartDate(){
@@ -229,23 +230,40 @@
                     var _days = _date.getDate();
                     var _month = _date.getMonth()+1;
                     var _year = _date.getFullYear();
-                    
+                    var _monthName = defaults.monthNames[_date.getMonth()];
+                    var _isMonthName = false;
                     var _dateFormat = defaults.dateFormat;
                     
                     if(_dateFormat.indexOf("DD")>-1 && _days.toString().length<2){
                         _days = "0" + _days;
                     }
-                    if(_dateFormat.indexOf("MM")>-1 && _month.toString().length<2){
+                    if(_dateFormat.indexOf("MMM")>-1 && defaults.monthNames.length>0){
+                        _isMonthName = true;
+                    } 
+                    else if(_dateFormat.indexOf("MM")>-1 && _month.toString().length<2){
                         _month = "0" + _month;
                     }                    
                     
                     var _newDate = defaults.dateFormat.toLowerCase();
                     _newDate = _newDate.replace("dd", _days);
-                    _newDate = _newDate.replace("mm", _month);
+                    if (_isMonthName)
+                        _newDate = _newDate.replace("mmm", _monthName);
+                    else 
+                        _newDate = _newDate.replace("mm", _month);
                     _newDate = _newDate.replace("yy", _year);
                     
                     obj.val(_newDate);
-                }     
+                }  
+
+                function RerouteLabel() {
+                    var objId = obj.attr("id");
+                    var sibs = obj.parent().siblings("label[for=" + objId + "]");
+                    if (sibs) {
+                        var newLabelDest = $("#" + _container_name).find("SELECT").first();
+                        var newForId = newLabelDest.attr("id");
+                        sibs.first().attr("for", newForId);
+                    }
+                }
             });
         };
     })(jQuery);
