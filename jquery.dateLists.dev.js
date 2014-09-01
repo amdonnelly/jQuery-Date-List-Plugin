@@ -3,7 +3,7 @@
  *
  * url		http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx
  * author	Alan Donnelly 2011
- * version	1.0.1
+ * version	1.0.2
  * license	MIT and GPL licenses
  */
  
@@ -13,7 +13,8 @@
             var defaults = {
                 dateFormat: 'dd-mm-yy', 
                 monthNames: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], 
-                yearStart:'1979', yearEnd:'2011'
+                yearStart:'1900', yearEnd:new Date().getFullYear(),
+				defaultCurrentDate: false
             };
             var options = $.extend(defaults, options);
 
@@ -28,7 +29,7 @@
                                     
                 var _startDate = obj.val();
                 var _date = new Date();
-                var _seperator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : "-";
+                var _separator = (defaults.dateFormat.indexOf("/")>-1) ? "/" : ((defaults.dateFormat.indexOf(".")>-1) ? "." : "-");
                 
                 GetStartDate();
                 AddLists();
@@ -38,8 +39,8 @@
                 //=========================================================================
                 function GetStartDate(){
                     if(_startDate.length>0){
-                        var _dateSections = defaults.dateFormat.split(_seperator);
-                        var _dateParts = _startDate.split(_seperator);
+                        var _dateSections = defaults.dateFormat.split(_separator);
+                        var _dateParts = _startDate.split(_separator);
                         var _newDate = new Date();
 
                         for(_x=0; _x<_dateParts.length; _x++){
@@ -60,7 +61,7 @@
                 
                 //=========================================================================
                 function AddLists(){
-                    var _dateSections   = defaults.dateFormat.split(_seperator);
+                    var _dateSections   = defaults.dateFormat.split(_separator);
                     
                     var _obj = obj;
                     
@@ -115,7 +116,7 @@
                     
                                         
                     for(_x=_start;_x<_daysInMonth; _x++){
-                        var _selected = (_date.getDate()==_x) ?  "selected='true'" : "";
+                        var _selected = (defaults.defaultCurrentDate && (_date.getDate()==_x)) ?  "selected='true'" : "";
                         _options+="<option value='" + _x + "' " + _selected + ">" + _x + "</option>";
                     }
                     
@@ -149,7 +150,7 @@
                      $("#"+_container_name_month + "_list").children().remove();
                      
                     for(_x=0;_x<12; _x++){
-                        var _selected = ((_date.getMonth())==_x) ? "selected='true'" : "";
+                        var _selected = (defaults.defaultCurrentDate && (_date.getMonth()==_x)) ? "selected='true'" : "";
 
                         $("#"+_container_name_month + "_list").append("<option value='" + _x + "' " + _selected + ">" + defaults.monthNames[_x] + "</option>");
                     }
@@ -162,7 +163,7 @@
                     
                     if(_yEnd>_yStart){
                         for(_x=_yStart;_x<_yEnd+1; _x++){
-                            var _selected = ((_date.getFullYear())==_x) ? "selected='true'" : "";
+                            var _selected = (defaults.defaultCurrentDate && (_date.getFullYear()==_x)) ? "selected='true'" : "";
 
                             $("#"+_container_name_year + "_list").append("<option value='" + _x + "' " + _selected + ">" + _x + "</option>");
                         } 
