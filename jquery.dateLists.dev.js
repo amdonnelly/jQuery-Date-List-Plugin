@@ -3,7 +3,7 @@
  *
  * url		http://http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx
  * author	Alan Donnelly 2011
- * version	1.0.2
+ * version	1.0.3
  * license	MIT and GPL licenses
  */
  
@@ -38,25 +38,35 @@
                 
                 //=========================================================================
                 function GetStartDate(){
-                    if(_startDate.length>0){
+                    if (_startDate.length > 0) {
                         var _dateSections = defaults.dateFormat.split(_separator);
                         var _dateParts = _startDate.split(_separator);
                         var _newDate = new Date();
 
-                        for(_x=0; _x<_dateParts.length; _x++){
-                            if(_dateSections[_x].toLowerCase().indexOf("d")>-1){
+                        for (_x = 0; _x < _dateParts.length; _x++) {
+                            if (_dateSections[_x].toLowerCase().indexOf("d") > -1) {
                                 _newDate.setDate(_dateParts[_x]);
                             }
-                            else if(_dateSections[_x].toLowerCase().indexOf("m")>-1){
-                                _newDate.setMonth(_dateParts[_x]-1);
+                            else if (_dateSections[_x].toLowerCase().indexOf("m") > -1) {
+                                _newDate.setMonth(_dateParts[_x] - 1);
                             }
-                            else if(_dateSections[_x].toLowerCase().indexOf("y")>-1){
+                            else if (_dateSections[_x].toLowerCase().indexOf("y") > -1) {
                                 _newDate.setYear(_dateParts[_x]);
-                            }                                                        
+                            }
                         }
-                        
+
                         _date = _newDate;
                     }
+                    else {
+                        _date = new Date(defaults.yearStart, 1, 1);
+                    }
+
+                    if (defaults.defaultCurrentDate == true) {
+                        _date = new Date();
+                    }
+                    
+                    //Ensure blank date fields are populated with default date
+                    CreateDate();
                 }
                 
                 //=========================================================================
@@ -116,7 +126,7 @@
                     
                                         
                     for(_x=_start;_x<_daysInMonth; _x++){
-                        var _selected = (defaults.defaultCurrentDate && (_date.getDate()==_x)) ?  "selected='true'" : "";
+                        var _selected = (_date.getDate()==_x) ?  "selected='true'" : "";
                         _options+="<option value='" + _x + "' " + _selected + ">" + _x + "</option>";
                     }
                     
@@ -150,7 +160,7 @@
                      $("#"+_container_name_month + "_list").children().remove();
                      
                     for(_x=0;_x<12; _x++){
-                        var _selected = (defaults.defaultCurrentDate && (_date.getMonth()==_x)) ? "selected='true'" : "";
+                        var _selected = (_date.getMonth()==_x) ? "selected='true'" : "";
 
                         $("#"+_container_name_month + "_list").append("<option value='" + _x + "' " + _selected + ">" + defaults.monthNames[_x] + "</option>");
                     }
@@ -163,7 +173,7 @@
                     
                     if(_yEnd>_yStart){
                         for(_x=_yStart;_x<_yEnd+1; _x++){
-                            var _selected = (defaults.defaultCurrentDate && (_date.getFullYear()==_x)) ? "selected='true'" : "";
+                            var _selected = (_date.getFullYear()==_x) ? "selected='true'" : "";
 
                             $("#"+_container_name_year + "_list").append("<option value='" + _x + "' " + _selected + ">" + _x + "</option>");
                         } 

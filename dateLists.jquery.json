@@ -1,11 +1,11 @@
 {
-"name": "spiralimages",
+"name": "jqueryDateLists",
 "title": "jQuery Date Lists",
-"description": "Date Drop Down Lists.",
+"description": "Date field drop down lists",
 "keywords": [
-"date lists", "Date Drop Down Lists", "date of birth", "dob"
+"date lists", "Date field drop down lists", "Date Drop Down Lists", "date of birth", "dob"
 ],
-"version": "1.0.2",
+"version": "1.0.3",
 "homepage": "http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
 "demo": "http://www.amdonnelly.co.uk/things/date-drop-down-lists.aspx",
 "author": {

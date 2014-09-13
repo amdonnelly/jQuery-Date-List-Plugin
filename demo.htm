@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>Untitled Page</title>
-    <script type="text/javascript" src="jquery-1.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<script type="text/javascript" src="jquery.dateLists.min.js"></script>
 
     <style type="text/css">
@@ -36,20 +37,100 @@
 
         .dateLists_container .year_container .list{
 
-        }    
-    
+        }
+
+        .example {
+            float:left;
+            width:750px;
+            border:1px solid #808080 ;
+            padding:10px;
+            margin-bottom:20px;
+        }
+        .example h3 {
+            margin: 0px 0px 10px 0px;
+        }
+        .example .input {
+            width:220px;
+            float:left;
+            padding-top:30px;
+        }
+        .example .input input[type=text]{
+            display:block!important;
+            margin-top: -50px;
+            position: absolute;
+        }
+        .example .input .dateLists_container:before {
+            content:'Output lists';
+        }
+        .example .input input[type=text] {
+            content:'Output lists';
+        }
+        .example code {
+            width:500px;
+            float:left;
+            border:1px solid #a0a0a0 ;
+            padding:10px;
+        }
+        
     </style>
 	
   <script type="text/javascript">  
    $().ready(function() {  
-        $('#test_fld').dateDropDowns({dateFormat:'dd-mm-yy'});  
-   });  
+       $('#fld_example1').dateDropDowns({ dateFormat: 'dd/mm/yy' });
+
+       $('#fld_example2').dateDropDowns({ dateFormat: 'DD.MM.yy' });
+
+       $('#fld_example3').dateDropDowns({ dateFormat: 'yy-mm-dd', monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] });
+
+       $('#fld_example4').dateDropDowns({ dateFormat: 'yy-mm-dd', defaultCurrentDate: true });
+   });
   </script>       
 </head>
 <body>
 
-<div>
-	<input type="text" id="test_fld" value="5-2-2000"/>
+<div class="example">
+    <h3>Example 1</h3>
+    <div class="input">
+        
+	    <input type="text" id="fld_example1" value="5/2/2000" readonly="readonly" disabled="disabled"/>
+    </div>
+    <code class="prettyprint">
+        $('#fld_example1').dateDropDowns({dateFormat:'dd/mm/yy'});  
+    </code>
 </div>
+
+<div class="example">
+    <h3>Example 2</h3>
+    <div class="input">
+        
+	    <input type="text" id="fld_example2" value="05.02.2000" readonly="readonly" disabled="disabled"/>
+    </div>
+    <code class="prettyprint">
+        $('#fld_example2').dateDropDowns({dateFormat:'DD.MM.yy'});  
+    </code>
+</div>
+
+<div class="example">
+    <h3>Example 3</h3>
+    <div class="input">
+        
+	    <input type="text" id="fld_example3" value="2014-01-20" readonly="readonly" disabled="disabled"/>
+    </div>
+    <code class="prettyprint">
+        $('#fld_example3').dateDropDowns({dateFormat:'yy-mm-dd', monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']});  
+    </code>
+</div>
+
+<div class="example">
+    <h3>Example 4</h3>
+    <div class="input">
+        
+	    <input type="text" id="fld_example4" readonly="readonly" disabled="disabled"/>
+    </div>
+    <code class="prettyprint">
+        $('#fld_example4').dateDropDowns({dateFormat:'yy-mm-dd', defaultCurrentDate:true});  
+    </code>
+</div>
+
 </body>
 </html>
